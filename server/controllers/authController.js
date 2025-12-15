@@ -107,7 +107,10 @@ const getMe = catchAsync(async (req, res) => {
 const logout = (req, res) => {
     res.cookie('jwt', '', {
         httpOnly: true,
-        expires: new Date(0)
+       secure: isProduction,
+  sameSite: isProduction ? 'none' : 'lax',
+  path: '/',
+  expires: new Date(0),
     });
 
     res.status(200).json({
