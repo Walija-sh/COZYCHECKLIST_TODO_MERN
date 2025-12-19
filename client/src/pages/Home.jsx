@@ -50,7 +50,7 @@ const Home = () => {
     try {
       setIsLoading(true);
       const res = await axios.get(
-        `${import.meta.env.VITE_BACKEND_URL}/api/tasks`,
+        `/api/tasks`,
         { withCredentials: true }
       );
 
@@ -92,7 +92,7 @@ const Home = () => {
 
     try {
       const res = await axios.post(
-        `${import.meta.env.VITE_BACKEND_URL}/api/tasks`,
+        `/api/tasks`,
         { title, priority },
         { withCredentials: true }
       );
@@ -125,7 +125,7 @@ const Home = () => {
 
     try {
       await axios.put(
-        `${import.meta.env.VITE_BACKEND_URL}/api/tasks/${todo._id}`,
+        `/api/tasks/${todo._id}`,
         { completed: !original },
         { withCredentials: true }
       );
@@ -155,7 +155,7 @@ const Home = () => {
 
     try {
       await axios.put(
-        `${import.meta.env.VITE_BACKEND_URL}/api/tasks/${id}`,
+        `/api/tasks/${id}`,
         { title, priority },
         { withCredentials: true }
       );
@@ -182,7 +182,7 @@ const Home = () => {
 
     try {
       await axios.delete(
-        `${import.meta.env.VITE_BACKEND_URL}/api/tasks/${id}`,
+        `/api/tasks/${id}`,
         { withCredentials: true }
       );
     } catch (err) {

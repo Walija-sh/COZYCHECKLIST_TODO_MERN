@@ -17,7 +17,7 @@ export const ToDoAppContextProvider = ({ children }) => {
   const getCurrentUser = async () => {
     try {
       const res = await axios.get(
-        `${import.meta.env.VITE_BACKEND_URL}/api/auth/me`,
+        `/api/auth/me`,
         { withCredentials: true }
       );
 
@@ -46,8 +46,8 @@ const handleAuthentication = async (email, password,type) => {
   try {
     const url =
       type === "signup"
-        ? `${import.meta.env.VITE_BACKEND_URL}/api/auth/register`
-        : `${import.meta.env.VITE_BACKEND_URL}/api/auth/login`;
+        ? `/api/auth/register`
+        : `/api/auth/login`;
 
     const res = await axios.post(
       url,
@@ -77,7 +77,7 @@ const handleAuthentication = async (email, password,type) => {
   const handleLogout = async () => {
     try {
       const res = await axios.get(
-        `${import.meta.env.VITE_BACKEND_URL}/api/auth/logout`,
+        `/api/auth/logout`,
         { withCredentials: true }
       );
 
