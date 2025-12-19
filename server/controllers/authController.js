@@ -9,7 +9,7 @@ import jwt from 'jsonwebtoken';
 const cookieOptions = {
   httpOnly: true,                 // always true, no debate
   secure: isProduction,           // true only in production (HTTPS)
-  sameSite: isProduction ? 'none' : 'lax',
+  sameSite:  'lax',
   maxAge: 7 * 24 * 60 * 60 * 1000, // 7 days
   path: '/',                      // always set this
 };
@@ -108,7 +108,7 @@ const logout = (req, res) => {
     res.cookie('jwt', '', {
         httpOnly: true,
        secure: isProduction,
-  sameSite: isProduction ? 'none' : 'lax',
+  sameSite:  'lax',
   path: '/',
   expires: new Date(0),
     });
